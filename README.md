@@ -6,9 +6,9 @@
 
 ```
 db.authors.insert({
-    name: “Juan”,
-    last_name: “Lopez”,
-    sections: [‘how to’, ‘MongoDB’]
+    name: “Josh”,
+    last_name: “L”,
+    sections: [‘Javascript’, ‘MongoDB’]
 });
 ```
 
@@ -48,4 +48,36 @@ db.authors.update({ name: 'Mark' }, { $set: { age: 30 } });
 ```
 db.authors.update({ name: 'Mark' }, { $unset: { age: '' } })
 ```
+
+### $push - 
+```
+db.authors.update({ name: 'Josh' }, { $push: { sections: 'Jquery' } });
+```
+
+### $pop - 
+
+db.authors.update({ name: 'Josh' }, { $pop: { section: 1 } });
+
+
+### $pull - Destroy by update
+
+db.authors.update({ name: 'Josh' }, $pull : { sections: ['Jquery', 'GO'] });
+
+## .save()
+Another way to update or insert data, use command .save();
+
+db.authors.save({
+    name: 'Mark'
+});
+
+### update with save()
+
+db.authors.save({
+    _id: ObjectId('XXXX...'),
+    name: 'Mark A',
+    sections: ['Laravel', 'PHP']
+});
+
+// Updated all, columns and values.
+
 By //scotch.io/
