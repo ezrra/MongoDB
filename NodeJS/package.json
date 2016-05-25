@@ -1,0 +1,13 @@
+{
+	"name": "Node",
+	"version": "1.0.0",
+	"main": "app.js",
+	"private": true,
+	"dependencies": {
+		"consolidate" :"~0.9.1",
+		"express" : "~3.2.6",
+		"mongodb" : "~1.3.10"
+	},
+	"author": "Anonymous",
+  	"license": "BSD"
+}

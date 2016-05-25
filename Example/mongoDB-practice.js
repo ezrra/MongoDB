@@ -204,3 +204,7 @@ $ db.users.find({ $and: [ { name: { $gt: 'M' } }, { name: { $regex: "k" } } ] })
 // { "_id" : ObjectId("5744b9853c51412a0ed5d36f"), "name" : "Mark", "examples" : [ "Javascript" ] }
 
 
+// MongoDB & Node
+
+// Synchronous vs Asynchronous
+
