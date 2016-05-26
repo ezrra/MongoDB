@@ -208,3 +208,70 @@ $ db.users.find({ $and: [ { name: { $gt: 'M' } }, { name: { $regex: "k" } } ] })
 
 // Synchronous vs Asynchronous
 
+/*
+	
+	JSON Revisited
+
+	Array => []
+	Dictionaries => {}
+
+*/
+
+/*
+	
+	JSON Subdocuments
+
+	{ "address": { "street_address": "Elm Drive", "city": "Palo Alto", "state": "California", "zipcode" : "94545" } }
+	
+*/
+
+/* mongorestore dump */
+
+// Querying Inside Arrays
+
+$ db.accounts.find().pretty()
+
+$ db.accounts.insert({ name: "George", favorites: ['ice scream', 'pizza'] })
+
+$ db.accounts.insert({ name: "Howard", favorites: ['beer', 'pretzels'] })
+
+$ db.accounts.find({ favorites: "pretzels" })
+
+$ db.accounts.find({ favorites: { $all: ["pretzels", "beer"] } })
+
+$ db.accounts.find({ favorites: { $in: ["beer", "ice cream"] } })
+
+// Queries With Dot Notation
+
+$ db.users.insert({ name: "richard", email: { work: "richard@10en.com", personal: "kre@example.com" } })
+
+$ db.users.findOne()
+
+$ db.user.find({ email: { work: "richard@10en.com" } })
+
+$ db.users.find({ "email.work" : "richard@10en.com" })
+
+// Quiz
+$ db.catalog.find({ "price": { $gt: 10000 }, "reviews" : { $gte: 5 } })
+
+// Cursors
+
+$ cur = db.people.find(); null;
+
+$ cur.hasNext();
+
+$ cur.next()
+
+// Tip
+
+$ while (cur.hasNext()) printjson(cur.next())
+
+$ cur.limit(5)
+
+// reverse query
+
+$ cur.sort({ name: -1 }); null;
+
+$ cur.sort({ name: -1 }).limit(); null;
+
+$ cur.sort({ name: -1 }).limit().skip(2); null;
