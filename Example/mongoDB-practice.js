@@ -275,3 +275,49 @@ $ cur.sort({ name: -1 }); null;
 $ cur.sort({ name: -1 }).limit(); null;
 
 $ cur.sort({ name: -1 }).limit().skip(2); null;
+
+// Counting Results
+
+$ db.scores.count({ type: "test" })
+
+$ db.scores.count({ type: 'test', score: { $gt: 90 } })
+
+// Update
+
+// $set, $inc
+
+// $unset
+
+$ db.users.update({ _id: 'Jimmy' }, { $unset: { interests: 1 } })
+
+// $pop, $pull, $pullAll, $addToset
+
+$ db.arrays.insert({ _id: 0, a: [1, 2, 3, 4] })
+
+$ db.arrays.update({ _id:0 }, { $set: { "a.2" : 5 } } )
+
+$ db.arrays.update({ _id:0 }, { $push: { a : 6 } } )
+
+$ db.arrays.update({ _id:0 }, { $pop: { a : 1 } } )
+
+$ db.arrays.update({ _id:0 }, { $pop: { a : -1 } } )
+
+$ db.arrays.update({ _id:0 }, { $pushAll: { a : [7, 8, 9] } } )
+
+$ db.arrays.update({ _id:0 }, { $pull: { a : 5 } } ) // remove item
+
+$ db.arrays.update({ _id:0 }, { $pullAll: { a : [2, 4, 8] } } ) // remove items
+
+$ db.arrays.update({ _id:0 }, { $addToset: { a: 5 } })
+
+// upserts
+
+$ db.people.update({ name: 'George' }, { $set: { age: 40 } }, { upsert: true })
+
+// multi-update
+
+$ db.people.update({}, { $set: { $title: 'Dr' } }, { multi: true }) // check
+
+// NODE.JS DRIVER FIND, FINDONE, AND CURSORS.
+
+$ mongoimport -d course -c grades grades.json
