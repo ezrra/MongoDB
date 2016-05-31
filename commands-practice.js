@@ -322,3 +322,13 @@ $ db.people.update({}, { $set: { $title: 'Dr' } }, { multi: true }) // check
 
 $ mongoimport -d course -c grades grades.json
 
+$ mongoimport --help 
+
+// Example by week 2 mongoimport
+
+$ mongoimport --type csv --headerline file_name.csv -d database_name -c collection_name
+
+$ db.data.find({ "Wind Direction": { "$gt" : 180, "$lt" : 360 } } ).sort({ "Temperature": 1 }).limit(1).pretty()
+
+// MongoProc
+
