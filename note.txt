@@ -4,3 +4,15 @@ You can work with JSON-style.
 
 Document across your entire development stack.
 
+MongoDB Schema Design
+
+* Rich Documents
+* Pre Join / embed data
+* No Mongo Joins
+* No constraints
+* Atomic operations
+* No Declared Schema
+
+What's the single most important factor in designing your application schema within MongoDB?
+
+Matching the data access patterns of your application.
