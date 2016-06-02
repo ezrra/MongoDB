@@ -333,5 +333,8 @@ $ db.data.find({ "Wind Direction": { "$gt" : 180, "$lt" : 360 } } ).sort({ "Temp
 // MongoProc
 
 
+
 // MongoDB Schema Design
+// Patters, Case & Tradeoffs
+
 
