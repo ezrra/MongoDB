@@ -199,7 +199,6 @@ Execute:
 You can also denormalize fields from the One side into the Many side.
 
 > db.parts.findOne() {
-	
 	_id: ObjectId(),
 	partno: "12345678",
 	name: "",
@@ -213,7 +212,6 @@ You can also denormalize fields from the One side into the Many side.
 --- Denormalizing With One to Squillions Relationships
 
 > db.logmsg.findOne() {
-	
 	time: "",
 	message: "",
 	ipaddr: "",
@@ -286,10 +284,11 @@ db.hosts.update({ _id:host_id },
     "texto" : "Me gusta"
 }
 
-REFERENCES
+--->
+Estrategias de modelado
 
-http://www.analyticaweb.com/desarrollo-web/modelado-de-datos-con-mongodb-embebidos-vs-referenciados
-https://unpocodejava.wordpress.com/2013/08/05/consideraciones-sobre-modelado-de-datos-en-mongodb/
+
+<---
 
 
 --->

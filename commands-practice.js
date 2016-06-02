@@ -331,10 +331,55 @@ $ mongoimport --type csv --headerline file_name.csv -d database_name -c collecti
 $ db.data.find({ "Wind Direction": { "$gt" : 180, "$lt" : 360 } } ).sort({ "Temperature": 1 }).limit(1).pretty()
 
 // MongoProc
-
-
-
 // MongoDB Schema Design
 // Patters, Case & Tradeoffs
 
+$ db.collection.findAndModify()
+
+// ATOMIC OPERATIONS
+
+{
+    _id: 123456789,
+    title: "MongoDB: The Definitive Guide",
+    author: [ "Kristina Chodorow", "Mike Dirolf" ],
+    published_date: ISODate("2010-09-24"),
+    pages: 216,
+    language: "English",
+    publisher_id: "oreilly",
+    available: 3,
+    checkout: [ { by: "joe", date: ISODate("2012-10-15") } ]
+}
+
+$ db.books.update (
+   { _id: 123456789, available: { $gt: 0 } },
+   {
+     $inc: { available: -1 },
+     $push: { checkout: { by: "abc", date: new Date() } }
+   }
+)
+
+// MODEL TREE STRUCTURES WITH PARENT REFERENCES
+
+// The Parent References patter stores each tree node in a document
+// in addition to the tree node, the document stores the id of the node's parent
+
+// e.g.
+
+Books
+	Programming
+		Languages
+		Databases
+			MongoDB
+			dbm
+
+$ db.categories.insert( { _id: "MongoDB", parent: "Databases" } )
+$ db.categories.insert( { _id: "dbm", parent: "Databases" } )
+$ db.categories.insert( { _id: "Databases", parent: "Programming" } )
+$ db.categories.insert( { _id: "Languages", parent: "Programming" } )
+$ db.categories.insert( { _id: "Programming", parent: "Books" } )
+$ db.categories.insert( { _id: "Books", parent: null } )
+
+$ db.categories.findOne( { _id: "MongoDB" } ).parent
+$ db.categories.createIndex( { parent: 1 } )
+$ db.categories.find( { parent: "Databases" } )
 

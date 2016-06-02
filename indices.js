@@ -107,3 +107,26 @@ $ db.puntuaciones.find({ perdidas: { $gt: 3 } })
 $ db.puntuaciones.ensureIndex({ mejores: 1 })
 
 $ db.puntuaciones.find({ mejores: 'Full house' })
+
+// arreglos con documentos anidados
+
+$ db.puntuaciones.ensureIndex({ 'comentarios.texto': 1 })
+
+$ db.puntuaciones.find({ 'comentarios.texto': '...' })
+
+// Uso de propiedades
+
+// Propiedad de unicidad - valor de este campo sea unico
+
+$ db.puntuaciones.ensureIndex({ nombre: 1 }, { unique: true })
+
+// Propiedad de dispersion - filtrar los resultados buscados por el campo indexado dejando por fuera aquellos registros que no poseen el campo
+
+// No apareceran documentos que no tenga el campo que se agrego como sparse: true - Ejemplo
+
+$ var carlos = { nombre: 'Carlos' }
+
+$ db.puntuaciones.insert(carlos)
+
+$ db.puntuaciones.ensureIndex({ gandas: 1 }, { sparse: true })
+
