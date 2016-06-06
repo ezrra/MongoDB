@@ -312,7 +312,29 @@ Authorization, Authentication, Encryption & Auditing
 
 --->
 Best Practice - http://es.slideshare.net/mongodb/migrating-to-mongodb-best-practices
-
+<---
 
 
 <---
+
+MongoDB avanzado por Victor Cuervo
+
+MongoDB 3.2
+
+* Nuevos engines
+* Validacion de documentos
+* MongoDB y RealTime
+* MongoDB Compass
+* API de metricas
+
+Uso de WiredTiger como engine por defecto.
+
+MongoDB Compass
+
+API Metric
+Herramientas APM (Application Performance Monitoring)
+
+Cover Queries
+* Todos los campos de la query son parte del indice y
+
+--->

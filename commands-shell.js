@@ -13,3 +13,6 @@ $ mongoimport // Import from JSON or CSV
 $ mongofiles // Utility for putting and gettings files from MongoDB GridFS
 $ mongostat // Show performace statistics
 
+// $ aggregate
+// $ db.collection.aggregate()
+// 
