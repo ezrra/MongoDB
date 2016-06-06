@@ -1,0 +1,20 @@
+{"_id": 1,"id_cliente": 10,"monto": 200,"modo_de_pago": "efectivo","articulos": ["harina", "arroz", "ketchup"]}
+{"_id": 2,"id_cliente": 10,"monto": 180,"modo_de_pago": "tarjeta","articulos": ["pollo", "aceite", "galletas"]}
+{"_id": 3,"id_cliente": 2,"monto": 220,"modo_de_pago": "efectivo","articulos": ["pasta", "ketchup", "papel de baño"]}
+{"_id": 4,"id_cliente": 10,"monto": 200,"modo_de_pago": "efectivo","articulos": ["carne", "aceite", "galletas"]}
+{"_id": 5,"id_cliente": 8,"monto": 172,"modo_de_pago": "tarjeta","articulos": ["pollo", "aceite", "papel de baño"]}
+{"_id": 6,"id_cliente": 3,"monto": 302,"modo_de_pago": "tarjeta","articulos": ["harina", "pasta", "papel de baño"]}
+{"_id": 7,"id_cliente": 10,"monto": 154,"modo_de_pago": "tarjeta","articulos": ["ketchup", "aceite", "pescado"]}
+{"_id": 8,"id_cliente": 2,"monto": 89,"modo_de_pago": "efectivo","articulos": ["harina", "aceite", "papel de baño"]}
+{"_id": 9,"id_cliente": 10,"monto": 311,"modo_de_pago": "tarjeta","articulos": ["harina", "ketchup", "pollo"]}
+{"_id": 10,"id_cliente": 1,"monto": 202,"modo_de_pago": "efectivo","articulos": ["harina", "aceite", "papel de baño"]}
+{"_id": 11,"id_cliente": 10,"monto": 982,"modo_de_pago": "tarjeta","articulos": ["carne", "aceite", "pasta"]}
+{"_id": 12,"id_cliente": 3,"monto": 542,"modo_de_pago": "tarjeta","articulos": ["harina", "pollo", "galletas"]}
+{"_id": 13,"id_cliente": 10,"monto": 862,"modo_de_pago": "tarjeta","articulos": ["pasta", "aceite", "papel de baño"]}
+{"_id": 14,"id_cliente": 10,"monto": 645,"modo_de_pago": "tarjeta","articulos": ["harina", "aceite", "ketchup"]}
+{"_id": 15,"id_cliente": 7,"monto": 183,"modo_de_pago": "efectivo","articulos": ["pasta", "aceite", "papel de baño"]}
+{"_id": 16,"id_cliente": 10,"monto": 291,"modo_de_pago": "efectivo","articulos": ["harina", "carne", "papel de baño"]}
+{"_id": 17,"id_cliente": 10,"monto": 721,"modo_de_pago": "tarjeta","articulos": ["ketchup", "pasta", "pescado"]}
+{"_id": 18,"id_cliente": 5,"monto": 283,"modo_de_pago": "tarjeta","articulos": ["harina", "aceite", "papel de baño"]}
+{"_id": 19,"id_cliente": 10,"monto": 321,"modo_de_pago": "efectivo","articulos": ["harina", "ketchup", "papel de baño"]}
+{"_id": 20,"id_cliente": 3,"monto": 394,"modo_de_pago": "efectivo","articulos": ["carne", "aceite", "pescado"]}
