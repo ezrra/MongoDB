@@ -6,17 +6,12 @@
 // Tipos de indices
 
 /*
-
  Indice sencillo - definidos sobre un unico campo de un documento
  Indice compuesto - definidos sobre varios campos de un documento
  Indice multillave - En casos de que el campos a indexar pertenezca a subdocumentos dentro de un arreglo del documento padre
  Indice geoespacial - Indexar campos que sean coordenadas de tipo GeoJSON
  Indice Texto - 
  Indice tipo hash
-
-*/
-
-/*
 
  Propiedades de los indices:
 
@@ -25,11 +20,9 @@
 
 */
 
-// Ejemplo
-
 {
 	nombre: "Juan",
-	gandas: 3, 
+	ganadas: 3, 
 	perdidas: 3,
 	retiradas: 9,
 	dinero: 15,
@@ -48,7 +41,7 @@
 
 {
 	nombre: "Jose",
-	gandas: 8, 
+	ganadas: 8, 
 	perdidas: 4,
 	retiradas: 3,
 	dinero: 120,
@@ -67,7 +60,7 @@
 
 {
 	nombre: "Manuel",
-	gandas: 4, 
+	ganadas: 4, 
 	perdidas: 6,
 	retiradas: 5,
 	dinero: 30,
@@ -128,5 +121,66 @@ $ var carlos = { nombre: 'Carlos' }
 
 $ db.puntuaciones.insert(carlos)
 
-$ db.puntuaciones.ensureIndex({ gandas: 1 }, { sparse: true })
+$ db.puntuaciones.ensureIndex({ ganadas: 1 }, { sparse: true })
 
+// CONSTRUCCION EN EL FONDO
+// Construccion de indices en el fondo: evita que la base de datos se bloquee al crear un indice en particular
+
+$ db.puntuaciones.ensureIndex({ campo_a_indexar: q }, { background: true })
+
+// RECONSTRUCCION DE INDICES
+
+$ db.puntuaciones.reIndex()
+
+// MEDICIONES DE USO
+
+// Saber si realmente se estan utilizando los indices se estan utilizando en lugar de procedimiento normal
+
+.explain()
+
+// Explica su plan de ejecucion para un operacion en particular
+
+$ db.puntuaciones.find().explain()
+
+$ db.puntuaciones.find({ dinero: { $gt: 50 } }).explain()
+
+/*
+
+{
+	"cursor" : "BtreeCursor dinero_1",
+	"isMultiKey" : false,
+	"n" : 1,
+	"nscannedObjects" : 1,
+	"nscanned" : 1,
+	"nscannedObjectsAllPlans" : 1,
+	"nscannedAllPlans" : 1,
+	"scanAndOrder" : false,
+	"indexOnly" : false,
+	"nYields" : 1,
+	"nChunkSkips" : 0,
+	"millis" : 40,
+	"indexBounds" : {
+		"dinero" : [
+			[
+				50,
+				Infinity
+			]
+		]
+	},
+	"server" : "ezrra-SVE14125CLW:27017",
+	"filterSet" : false
+}
+
+*/
+
+// .hint()
+
+$ db.puntuaciones.find().hint({ ganadas: 1 }) // CHECAR
+
+$ db.puntuaciones.find().hint({ ganadas: 1 }).explain() // CHECAR
+
+$ db.puntuaciones.find({ dinero: { $gt: 50 } }).hint({ $natural: 1 }).explain()
+
+// ELIMINAR INDICES
+
+$ db.puntuaciones.dropIndex({ campo_del_indice: 1 })

@@ -350,12 +350,13 @@ $ db.collection.findAndModify()
     checkout: [ { by: "joe", date: ISODate("2012-10-15") } ]
 }
 
+// Update - $push - Array
 $ db.books.update (
-   { _id: 123456789, available: { $gt: 0 } },
-   {
-     $inc: { available: -1 },
-     $push: { checkout: { by: "abc", date: new Date() } }
-   }
+   	{ _id: 123456789, available: { $gt: 0 } },
+   	{
+    	$inc: { available: -1 },
+    	$push: { checkout: { by: "abc", date: new Date() } }
+   	}
 )
 
 // MODEL TREE STRUCTURES WITH PARENT REFERENCES
