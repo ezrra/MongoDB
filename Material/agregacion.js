@@ -66,3 +66,76 @@ $ db.ordenes.aggregate([
 ])
 
 	
+// ETAPAS
+
+// PROYECTAR - $project
+
+$ db.ordenes.aggregate([
+	{
+		$project : {
+			monto: 1,
+			cliente: "$id_cliente"
+		}
+	}
+])
+
+// DESENVOLVER - $unwind
+// Permite tomar un campo de los documentos que sea de tipo arreglo y generar un documento para cada 
+// valor del mismo.
+// Esta etaoa seule combinarse con la de agrupacion cuandi la finalidad es realizar algun calculo
+// que involicre a los valores de un campo tipo arreglo
+
+$ db.ordenes.aggregate([
+	{
+		$unwind: "$articulos"
+	}
+])
+
+// ORDENAR, LIMITAR Y SALTAR - $sort, $limit, $skip
+
+$ db.ordenes.aggregate([
+	{
+		$sort: { monto: -1, _id: 1 }
+	}
+])
+
+$ db.ordenes.aggregate([
+	{
+		$sort: { monto: -1, _id: 1 }
+	},
+	{
+		$skip: 7 
+	},
+	{
+		$limit: 2
+	}
+])
+
+$ db.ordenes.aggregate([
+	{
+		$match: {
+			monto: { $gt: 200 }
+		}
+	},
+	{
+		$unwind: "$articulos"
+	},
+	{
+		$group: {
+			_id: "$articulos",
+			monto_promedio: { $avg: "$monto" },
+			cantidad_ordenes: { $sum: 1 },
+			compradores: { $addToSet: "$id_cliente" }
+		}
+	},
+	{
+		$sort: { monto_promedio: -1, cantidad_ordenes: -1 }
+	},
+	{
+		$skip: 3
+	},
+	{
+		$limit: 2
+	}
+])
+

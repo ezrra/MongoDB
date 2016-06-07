@@ -1,13 +1,22 @@
 // SPARK COMPASS
 
-// DeviceBeaconDay
+// db.EventPerDay
 {
-	"AppInstanceId" : ObjectID('APP1')
-	"EndUserId" : ObjectID('USER1')
-	"BeacondId" : ObjectID('BEACON2')
-	"EntryTimestamp" : '06-02-2016 08:00'
-	"ExitTimestamp" : '06-02-2016 12:00'
-	"DualTimestamp" : '00:00:00 04:00'
+	_id:,
+	OrgId,
+	AppId,
+	AppInstanceId,
+	EndUserId,
+	EntityId,
+	EventDate,
+	LoggedTime,
+	Events: [
+		{
+			Entry,
+			Exit,
+			Diff
+		}
+	]
 }
 
 /* ------------------------------------------------------------------------------------------------ */
@@ -161,6 +170,3 @@ $ db.beacon.insert({ event_log: event_log })
 $ var user_event = db.beacon.find({ '_id': 'BEACON2', 'event_log.UserId': 'USER1' })
 $ var value_dual = ... getDualTimestamp();
 $ db.beacon.update({ _id: 'BEACON2', event_log: UserId: 'USER1' }, { $set: { ExitTimestamp: '06-02-2016 12:00', DualTimestamp: value_dual } })
-
-
-/* ------------------------------------------------------------------------------------------------ */
