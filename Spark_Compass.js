@@ -170,3 +170,73 @@ $ db.beacon.insert({ event_log: event_log })
 $ var user_event = db.beacon.find({ '_id': 'BEACON2', 'event_log.UserId': 'USER1' })
 $ var value_dual = ... getDualTimestamp();
 $ db.beacon.update({ _id: 'BEACON2', event_log: UserId: 'USER1' }, { $set: { ExitTimestamp: '06-02-2016 12:00', DualTimestamp: value_dual } })
+
+
+/* 
+Mes (Entrada y salida) de un AppInstanceId, BeaconId
+
+199707 - Entry
+197660 - Exit
+
+Dia (Entrada y salida) de un AppInstanceId, BeaconId
+
+16 - Entry
+17 - Exit
+o 
+4951 - Entry
+4928 - Exit
+
+---
+
+1 Documento por dia
+16 entradas y 17 salidas (Update)
+o 
+278 y 276
+
+*/
+
+{
+	_id:,
+	OrgId,
+	AppId,
+	AppInstanceId,
+	EndUserId,
+	EntityId,
+	EventDate,
+	LoggedTime,
+	Events: [
+		{
+			Entry,
+			Exit,
+			Diff
+		}
+	]
+}
+
+
+
+{
+	_id:,
+	OrgId,
+	AppId,
+	AppInstanceId,
+	EndUserId,
+	EntityId,
+	EventDate,
+	// LoggedTime,
+	Entry: ['time', 'time'],
+	Exit: ['time', 'time']
+}
+
+
+////////
+
+eventLog => 
+		data: 468. MiB
+		Table rows: 3788305
+
+3511492		0.84340352	486		409.8941106
+651986		0.15659648	MB/GB	
+4163478			
+
+

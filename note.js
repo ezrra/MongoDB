@@ -338,3 +338,9 @@ Cover Queries
 * Todos los campos de la query son parte del indice y
 
 --->
+
+
+Investigate
+- Map / reduce
+- $group command
+- Aggregation pipeline
