@@ -240,3 +240,84 @@ eventLog =>
 4163478			
 
 
+///////// 08/06/2016
+
+
+db.eventPerDay.find()
+
+db.eventPerDay.aggregate([
+    { 
+        $match : { 
+            EntityId: 100472, 
+            EventTime: { "$gte": ISODate("2016-02-04T00:00:00.000Z"), "$lte": ISODate("2016-02-04T23:59:59.000Z") } 
+        }
+    },
+    { 
+        $group: { 
+                _id: { "BeaconName" : "$EntityId", "AppInstanceId" : "$AppInstanceId","EndUserId" : "$EndUserId" }
+                /*,
+                {
+                    //$sum: { "$AppInstanceId" },
+                    
+                    eventTime: { $push: { EventTime: "$EventTime" } }
+                }*/
+            }
+    }, { 
+       $group: {
+                "_id": "$_id.BeaconName",
+                "Apps" : 
+                    {
+                        "$addToSet": { "Device": "$_id.AppInstanceId"}
+                    }, 
+                "usr" : 
+                    {
+                        "$addToSet": { "users": "$_id.EndUserId" }
+                    }, 
+                    count: { $sum:1 } 
+                }
+      },
+  
+    {
+        $project: { _id:1, conteo: "$count", size_device: { $size:"$Apps" } , size_user :{ $size:"$usr" }, Devices: "$Apps", users: "$usr" }
+    },
+    {
+        $sort:{_id:1}
+    }
+])   
+
+
+db.eventPerDay.aggregate([
+    {
+         $match : { 
+            EntityId: 100472, 
+            EventTime: { "$gte": ISODate("2016-02-04T00:00:00.000Z"), "$lte": ISODate("2016-02-04T23:59:59.000Z") } 
+        } 
+    },
+    {
+        $unwind: "$Entries"
+    },
+    {
+        $group: {
+            _id:
+            {
+                "$hour": "$Entries"
+            },
+            sum: { $sum: 1 }
+        }
+    }/*,
+    {
+        $sort:{ _id:1 }
+    }*/
+])
+
+
+
+/*
+    {
+        $project: {
+            // _id:1,
+            // Entries: 1
+            // time: { $dateToString: { format: "%H:%M:%S:%L", date: "$Entries" } }
+        }
+    },
+*/
