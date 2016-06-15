@@ -5,4 +5,3 @@ http://es.slideshare.net/mongodb/migrating-to-mongodb-best-practices
 * https://www.compose.io/
 
 * https://mlab.com/
-

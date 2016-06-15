@@ -1,7 +1,5 @@
 // MongoDB CRUD
-
 /*
-
 - Cursors
 - Query Optimization
 

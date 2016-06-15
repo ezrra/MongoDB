@@ -324,6 +324,8 @@ $ mongoimport -d course -c grades grades.json
 
 $ mongoimport --help 
 
+$ mongoimport --host localhost --port 27666 --db test --collection people --file data.json --jsonArray
+
 // Example by week 2 mongoimport
 
 $ mongoimport --type csv --headerline file_name.csv -d database_name -c collection_name

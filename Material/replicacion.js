@@ -1,3 +1,6 @@
+// mongod --dbpath "C:\data\replicaRS0" -replSet rs0 --port 20020
+// mongod --port 27017 --dbpath 'C:\data\replicacion\' --replSet rs0
+
 // REPLICACION
 
 // Replicacion de los datos a trces de distinrtas instancias y 
@@ -82,7 +85,7 @@ $ rs.status() {
 	...
 }
 
-$ rs.confi() {
+$ rs.conf() {
 	...
 }
 
