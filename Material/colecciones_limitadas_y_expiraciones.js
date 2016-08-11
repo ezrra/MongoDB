@@ -81,5 +81,3 @@ true
 
 // De indices TTL a limitado
 // Se elimina, verificar db.otroFantasmas.getIndexes()
-
-

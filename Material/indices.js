@@ -1,8 +1,6 @@
 // Indices es una estructura de datos que toma los valores de campos particulares de una tabla
 // y se almacenan en un espacio de rapido acceso.
-
 // Solo se debe de crear indices sobre campos que vayan a ser consultados con alta frecuencia
-
 // Tipos de indices
 
 /*
@@ -14,10 +12,8 @@
  Indice tipo hash
 
  Propiedades de los indices:
-
  Unicidad: Establecer el indice como campos unico.
  Dispersion: El filtrado de los resultados basados en campo indexado.
-
 */
 
 {
@@ -145,7 +141,6 @@ $ db.puntuaciones.find().explain()
 $ db.puntuaciones.find({ dinero: { $gt: 50 } }).explain()
 
 /*
-
 {
 	"cursor" : "BtreeCursor dinero_1",
 	"isMultiKey" : false,

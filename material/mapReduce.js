@@ -1,7 +1,5 @@
 // Example by blog
-
 // Using $look
-
 // Schema
 
 {

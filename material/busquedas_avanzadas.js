@@ -1,12 +1,8 @@
-
 // BUSQUEDAS AVANZADAS Y LAS SECUENCIAS AUTO-INCREMENTABLES
-
 // SECUENCIAS AUTO-INCREMENTABLES -  constraint
-
 // Coleccion de contadores
 
 $ var usuariosAutoIncremtables = {
-
 	_id: 'autoresid',
 	secuencia: 0
 }
