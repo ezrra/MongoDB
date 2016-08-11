@@ -1,7 +1,0 @@
-http://es.slideshare.net/mongodb/migrating-to-mongodb-best-practices
-
-* Cómo monitorear los recursos de un servidor utilizando Munin
-
-* https://www.compose.io/
-
-* https://mlab.com/
