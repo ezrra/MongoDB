@@ -1,6 +1,4 @@
-### Examples with MongoDB
-
-#### Database Authors
+# Examples with MongoDB
 
 ## .insert()
 
@@ -140,8 +138,8 @@ Person = {
 }
 ```
 
-#### Relations 1 - *
-Example Embedded
+#### Embedded Relations 1 - *
+
 ```
 Person = {
     nameL 'Josh',
@@ -159,8 +157,7 @@ Person = {
 };
 ```
 
-#### Example Referencing
-Example
+#### Referencing
 ```
 address_1 = {
     _id : '1',
