@@ -33,8 +33,8 @@ db.authors.drop();
 
 ## .update()
 
-### Upsert // false default
-### Multi // false default
+### Upsert - false default
+### Multi - false default
 
 ```
 db.authors.update({ name: 'Josh' }, { name: 'Mark', las_name : '---', sections: ['ruby', 'python'] });
@@ -49,17 +49,17 @@ db.authors.update({ name: 'Mark' }, { $set: { age: 30 } });
 db.authors.update({ name: 'Mark' }, { $unset: { age: '' } })
 ```
 
-### $push - 
+### $push
 ```
 db.authors.update({ name: 'Josh' }, { $push: { sections: 'Jquery' } });
 ```
 
-### $pop - 
+### $pop 
 ```
 db.authors.update({ name: 'Josh' }, { $pop: { section: 1 } });
 ```
 
-### $pull - Destroy by update
+### $pull
 ```
 db.authors.update({ name: 'Josh' }, $pull : { sections: ['Jquery', 'GO'] });
 ```
@@ -81,7 +81,7 @@ db.authors.save({
 });
 ```
 
-// Updated all, keys and values.
+Updated all, keys and values.
 
 ## Data modeling
 
@@ -89,30 +89,28 @@ db.authors.save({
 
 #### Datatype
 
-String 
-Integer
-Double
-Boolean
-Date
-Timestamp
-Null
-Array
-Array
-Object
-ObjectId
-Data Binary
-Javascript
+* String 
+* Integer
+* Double
+* Boolean
+* Date
+* Timestamp
+* Null
+* Array
+* Array
+* Object
+* ObjectId
+* Data Binary
+* Javascript
 
-### Modeling Patterns
+## Modeling Patterns
 
-#### Two patterns
+### Two patterns
 
-##### Embedded
+#### Embedded
 Documents embed one within the other (ADT)
 
 #### Referencing
-
----
 
 #### Relations 1 - 1
 Example
@@ -129,7 +127,7 @@ PersonalDocument = {
 };
 ```
 
-Example Embedded
+#### Example Embedded
 ```
 Person = {
     name: 'Josh',
@@ -143,7 +141,7 @@ Person = {
 ```
 
 #### Relations 1 - *
-##### Example Embedded
+Example Embedded
 ```
 Person = {
     nameL 'Josh',
@@ -161,8 +159,8 @@ Person = {
 };
 ```
 
-##### Example Referencing
-
+#### Example Referencing
+Example
 ```
 address_1 = {
     _id : '1',
@@ -235,7 +233,7 @@ person_2 = {
 
 ```
 
-#### intermediate table with columns
+#### Intermediate table with columns
 
 ```
 address_1 = {
@@ -273,4 +271,4 @@ person_2 = {
 
 ```
 
-By //scotch.io/ and //codehero.cc
+Reference by //scotch.io/ and //codehero.cc
